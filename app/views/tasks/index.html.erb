@@ -1,0 +1,9 @@
+<div class="mb-3 mt-3 p-4 bd-highlight"><h1>My Tasks</h1></div>
+<div>
+  <% @tasks.each do |task| %>
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="ml-3 p-2 bd-highlight"><input type="checkbox"></div>
+      <div class="p-2 bd-highlight"><h5><%= task.title %></h5></div>
+    </div>
+  <% end %>
+</div>
