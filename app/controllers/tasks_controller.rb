@@ -5,7 +5,7 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def show; end
+  def show;  end
 
   def new
     @task = Task.new
@@ -24,8 +24,9 @@ class TasksController < ApplicationController
     redirect_to task_path(@task)
   end
 
-  def destoy
+  def destroy
     @task.destroy
+    redirect_to tasks_path
   end
 
   private

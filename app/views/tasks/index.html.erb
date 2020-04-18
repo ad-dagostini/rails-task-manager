@@ -1,14 +1,20 @@
 <div class="mb-3 mt-3 p-4 bd-highlight"><h1>My Tasks</h1></div>
 <div>
-  <% @tasks.each do |task| %>
-    <div class="d-flex flex-row bd-highlight mb-3">
-      <% if task.completed === true %>
-        <div class="ml-3 p-2 bd-highlight"><input type="checkbox" checked></div>
-      <% else %>
-        <div class="ml-3 p-2 bd-highlight"><input type="checkbox"></div>
-      <% end %>
-      <div class="p-2 bd-highlight"><h5><%= link_to task.title task_path(task)%></h5></div>
-    </div>
-  <% end %>
-  <% link_to ‘Create a new task’, new_task_path %>
+  <ul class="list-unstyled">
+    <% @tasks.each do |task| %>
+      <div class="d-flex flex-row bd-highlight mb-3">
+        <% if task.completed %>
+          <div class="ml-3 p-2 bd-highlight"><input type="checkbox" checked></div>
+        <% else %>
+          <div class="ml-3 p-2 bd-highlight"><input type="checkbox"></div>
+        <% end %>
+        <div class="p-2 mx=5 bd-highlight"><li><%= link_to task.title, task_path(task) %></li></div>
+        <div>
+          <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Delete @task.title?' } %>
+          <a href="#" class="fa fa-trash-o p-2 bd-highlight"></a>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+  <ul class="list-unstyled"><li><%= link_to "+ Create a new task", new_task_path %></li></ul>
 </div>

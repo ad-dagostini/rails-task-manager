@@ -1,0 +1,21 @@
+<div class="mb-3 mt-3 p-4 bd-highlight"><h1><%= @task.title %></h1></div>
+<div>
+  <div class="d-flex justify-content-between">
+    <div class="p-3 mb-2 mx-2 bg-secondary text-white"><h5><%= @task.details %></h5></div>
+    <div>
+      <%= link_to("Edit Task", edit_task_path, class: "btn btn-secondary p-3 mb-2") %>
+    </div>
+  </div>
+  <ul class="list-unstyled">
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <% if @task.completed %>
+        <div class="ml-3 p-2 bd-highlight"><input type="checkbox" checked></div>
+        <div class="p-2 bd-highlight"><h5><%= 'Task is completed' %></h5></div>
+      <% else %>
+        <div class="ml-3 p-2 bd-highlight"><input type="checkbox"></div>
+        <div class="p-2 bd-highlight"><h5><%= 'Task is not completed yet' %></h5></div>
+      <% end %>
+    </div>
+  </ul>
+  <ul class="list-unstyled"><li><%= link_to "Back to task list", tasks_path %></li></ul>
+</div>
