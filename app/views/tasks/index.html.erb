@@ -2,8 +2,13 @@
 <div>
   <% @tasks.each do |task| %>
     <div class="d-flex flex-row bd-highlight mb-3">
-      <div class="ml-3 p-2 bd-highlight"><input type="checkbox"></div>
-      <div class="p-2 bd-highlight"><h5><%= task.title %></h5></div>
+      <% if task.completed === true %>
+        <div class="ml-3 p-2 bd-highlight"><input type="checkbox" checked></div>
+      <% else %>
+        <div class="ml-3 p-2 bd-highlight"><input type="checkbox"></div>
+      <% end %>
+      <div class="p-2 bd-highlight"><h5><%= link_to task.title task_path(task)%></h5></div>
     </div>
   <% end %>
+  <% link_to ‘Create a new task’, new_task_path %>
 </div>
