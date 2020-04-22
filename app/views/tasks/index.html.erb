@@ -10,8 +10,9 @@
         <% end %>
         <div class="p-2 mx=5 bd-highlight"><li><%= link_to task.title, task_path(task) %></li></div>
         <div>
-          <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Delete @task.title?' } %>
-          <a href="#" class="fa fa-trash-o p-2 bd-highlight"></a>
+          <%= link_to task_path(task.id), method: :delete, data: { confirm: 'Delete @task.title?' } do %>
+            <i class="fa fa-trash-o p-2 bd-highlight"></i>
+          <% end %>
         </div>
       </div>
     <% end %>
